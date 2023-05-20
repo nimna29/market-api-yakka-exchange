@@ -1,2 +1,2 @@
-# APICURIO_Studio
-Apicurio studio Testing repository
+# APICURIO_Studio - Market API - YAKKA Exchange
+Market API for YAKKA Exchange
