@@ -1,0 +1,113 @@
+{
+    "openapi": "3.0.2",
+    "info": {
+        "title": "Address Book API",
+        "version": "1.0.0",
+        "license": {
+            "name": "Apache 2.0",
+            "url": "https://www.apache.org/licenses/LICENSE-2.0"
+        }
+    },
+    "paths": {
+        "/addresses": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Address"
+                                    }
+                                }
+                            }
+                        },
+                        "description": "Return a list of addresses"
+                    }
+                },
+                "summary": "Get List of addresses"
+            },
+            "post": {
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Address"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created response"
+                    }
+                },
+                "summary": "Creating a new address"
+            }
+        },
+        "/addresses/(addressid)": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+
+                            }
+                        },
+                        "description": "Return address by id"
+                    }
+                },
+                "summary": "Get address by id"
+            },
+            "put": {
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Address"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Address update response"
+                    }
+                },
+                "summary": "Update address"
+            },
+            "delete": {
+                "responses": {
+                    "204": {
+                        "description": "Address deleted"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Address": {
+                "title": "Root Type for Address",
+                "description": "",
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "format": "int32",
+                        "type": "integer"
+                    },
+                    "contry": {
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "id": 1,
+                    "contry": "LK"
+                }
+            }
+        }
+    }
+}
